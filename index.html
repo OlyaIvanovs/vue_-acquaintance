@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Vue</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>App1</h3>
+        <button v-on:click="changeTitle">Change Title</button>
+        <p>{{ title }}</p>
+    </div>
+    <div id="app_class">
+        <input type="text" v-on:input="cssClass = $event.target.value">
+        <p v-bind:class="cssClass">Class: {{ cssClass }}</p>
+    </div>
+    <div id="app_increment">
+        <h3>App2</h3>
+        <button v-on:click="increment">Increment</button>
+        <p>Counter: {{counter}}</p>
+        <p>Clicks: {{clicks}}</p>
+    </div>
+    <div id="show_hide_app">
+        <h3>App3</h3>
+        <button v-on:click="show = !show">Show/Hide</button>
+        <p v-if="show">I'm part-time visible</p>
+        <p v-else>Am I visible?</p>
+        <br>
+        <ul>
+            <li>
+                
+            </li>
+        </ul>
+    </div>
+
+<script src="index.js"></script>
+</body>
+</html>
