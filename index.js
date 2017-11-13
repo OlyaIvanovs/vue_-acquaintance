@@ -1,3 +1,7 @@
+Vue.filter('uppercase', function(value) {
+    return value.toUpperCase();
+})
+
 new Vue({
     el: '#app',
     data: {
@@ -6,6 +10,11 @@ new Vue({
     methods: {
         changeTitle() {
             this.title = "New Title";
+        }
+    },
+    filters: {
+        lowercase: function(value) {
+            return value.toLowerCase();
         }
     }
 });
@@ -38,12 +47,12 @@ new Vue({
     el: "#show_hide_app",
     data: {
         show: true,
-        persons: {
+        persons: [
             {name: 'Olga', age: 29},
             {name: 'Ivan', age: 32},
             {name: 'Michael', age: 3},
             {name: 'Tim', age: 1},
-        }
+        ]
     },
     methods: {
 

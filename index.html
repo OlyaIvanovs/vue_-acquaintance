@@ -12,27 +12,28 @@
         <h3>App1</h3>
         <button v-on:click="changeTitle">Change Title</button>
         <p>{{ title }}</p>
-    </div>
+        <b>{{ title | uppercase }}</b>&nbsp;&nbsp;&nbsp;
+        <b>{{ title | uppercase | lowercase}}</b>
+    <br>
     <div id="app_class">
+        <h3>App2</h3>
         <input type="text" v-on:input="cssClass = $event.target.value">
         <p v-bind:class="cssClass">Class: {{ cssClass }}</p>
     </div>
     <div id="app_increment">
-        <h3>App2</h3>
+        <h3>App3</h3>
         <button v-on:click="increment">Increment</button>
         <p>Counter: {{counter}}</p>
         <p>Clicks: {{clicks}}</p>
     </div>
     <div id="show_hide_app">
-        <h3>App3</h3>
+        <h3>App4</h3>
         <button v-on:click="show = !show">Show/Hide</button>
         <p v-if="show">I'm part-time visible</p>
         <p v-else>Am I visible?</p>
-        <br>
+        <p>My family:</p>
         <ul>
-            <li>
-                
-            </li>
+            <li v-for="person in persons">{{ person.name }}</li>
         </ul>
     </div>
 

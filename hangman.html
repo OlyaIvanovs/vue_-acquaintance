@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Hangman</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+  <link rel="stylesheet" href="hangman.css"></link>
+
+  <script src="https://unpkg.com/vue"></script>
+
+</head>
+
+<body>
+    <div id="hangman">
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <h1 class="title is-1">Hangman</h1>
+            </div>
+            <div class="navbar-end">
+                <button class="button is-primary" v-on:click="startGame">New Game</button>
+            </div>
+        </div>
+        <br><br>
+        <div v-if="start">
+            <h4 class="title is-6">{{ msgPlayer1 }}</h4>
+            <input type="text" placeholder="Your word" class="input" v-model.lazy="word" v-on:keyup.enter="enterWord">
+            <button v-on:click="enterWord" class="button is-primary">Submit</button>
+        </div>
+        <div v-if="!start">
+            <div class="title is-2">
+                <table class="table is-bordered">
+                    <tr>
+                        <td v-for="(value, index) in word">
+                            {{ value }}
+                            <div v-if="!inGuessesList(index)" class="hide_card"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h4 class="title is-6">{{ msg }}</h4>
+            <div v-if="!finish">
+                <input class="input" v-on:keyup.enter="enterLetter" v-model.lazy="letter" type="text" placeholder="Enter a letter">
+                <button v-on:click="enterLetter" class="button is-primary">Submit</button>
+            </div>
+            <button class="button is-small is-primary" v-else v-on:click="startGame">New Game</button>
+        </div>
+    </div>
+
+    <script src="hangman.js"></script>
+</body>
+
+</html>
